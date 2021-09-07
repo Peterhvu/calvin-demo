@@ -13,3 +13,10 @@
 .home-gallery {
     padding-top: 100px;
 }
+.home-gallery .card {
+    cursor: pointer;
+}
+#galleryContent {
+    display: none;
+    
+}
