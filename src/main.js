@@ -1,33 +1,29 @@
-var fillGal = function () {
-    var row = $('#gallery1 .row');
-    for (let index = 1; index < 9; index++) {
-        row.append($('#galCol1').clone());
-    }
-    row.find('.col').click(galClick);
+$("body").on("click", ".nav-link", navLinkToggle);
+
+function navLinkToggle(e) {
+    $(".nav-link").removeClass("active disabled");
+    $(this).addClass("active disabled");
+    $(".navbar-collapse").removeClass("show");
+
+    const a = $(this), href = a.attr('href');
+    $("#about, #contact, #gallery").slideUp('fast');
+    $(href).slideDown('slow');
+    if (href == '#gallery') showGallery();
 }
 
-var galClick = function () {
-    $('#galleryContent').show();
-    $('html, body').animate({
-        scrollTop: $("#galleryContent").offset().top
-    }, 1000);
-    var row = $('#galleryContent .row');
-    row.empty();
-    for (let index = 0; index < 9; index++) {
-        row.append(
-            `<div class="col">
-        <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-        </div>
-    </div>`
-        );
-    }
-}
+function showGallery() {
+    var imagesCount = 6;
+    var imagePath = "src/gallery/sample-image-__.jpg";
+    var gallery = $("#gallery");
 
-fillGal();
+    // only do once, if this was done, exit 
+    if (gallery.children().length > 1) return;
+
+    for (let index = 1; index <= imagesCount; index++) {
+        const src = imagePath.replace('__', index.toString());
+        const element = $(`<a href="${src}"> <img src="${src}"> </a>`);
+        gallery.append(element);
+        if (index / 4 == 1) gallery.append('<div class="clear"></div>');
+    }
+    new SimpleLightbox('.gallery a', { overlayOpacity: 0.9, fadeSpeed: 0, animationSpeed: 100, widthRatio: 1, heightRatio: 1 });
+}

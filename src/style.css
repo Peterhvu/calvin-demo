@@ -1,22 +1,74 @@
+body {
+    /* override bootstrap */
+    font-size: 1.2rem;
+}
+
 .thm-primary-bg {
     background-color: #95AA4B;
 }
+
 .thm-primary-bg-transparent {
     background-color: #95aa4be6;
 }
-.main {
-    margin-top: 50px;
+
+#contact,
+#gallery {
+    display: none;
 }
+
+.contact-banner img {
+    width: 100%;
+}
+
 .height-2000 {
     height: 2000px;
 }
+
 .home-gallery {
     padding-top: 100px;
-}
-.home-gallery .card {
-    cursor: pointer;
-}
-#galleryContent {
     display: none;
-    
+}
+
+.link-text-color {
+    color: blue;
+}
+
+/* gallery  */
+
+/* line 16, ../sass/demo.scss */
+.clear {
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+.gallery * {
+    box-sizing: border-box;
+}
+
+.gallery a img {
+    float: left;
+    width: 25%;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #fff;
+    -webkit-transition: -webkit-transform .15s ease;
+    -moz-transition: -moz-transform .15s ease;
+    -o-transition: -o-transform .15s ease;
+    -ms-transition: -ms-transform .15s ease;
+    transition: transform .15s ease;
+    position: relative;
+}
+
+.gallery a:hover img {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    z-index: 5;
+}
+
+.sl-overlay {
+    background-color: black;
 }
