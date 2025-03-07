@@ -11,9 +11,23 @@ body {
     background-color: #95aa4be6;
 }
 
-#contact,
-#gallery {
-    display: none;
+.brand-claim {
+    font-size: .8em;
+    font-weight: bold;
+    padding: 0px 10px;
+}
+
+main {
+    margin-bottom: 150px;
+}
+
+.nav-item {
+    border-right: solid 1px;
+    text-wrap: nowrap;
+}
+
+.nav-item:last-child {
+    border-right: none;
 }
 
 .contact-banner img {

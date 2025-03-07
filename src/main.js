@@ -1,23 +1,16 @@
-$("body").on("click", ".nav-link", navLinkToggle);
-
 function navLinkToggle(e) {
     $(".nav-link").removeClass("active disabled");
     $(this).addClass("active disabled");
     $(".navbar-collapse").removeClass("show");
-
-    const a = $(this), href = a.attr('href');
-    $("#about, #contact, #gallery").slideUp('fast');
-    $(href).slideDown('slow');
-    if (href == '#gallery') showGallery();
 }
 
 function showGallery() {
-    var imagesCount = 6;
-    var imagePath = "src/gallery/sample-image-__.jpg";
-    var gallery = $("#gallery");
-
+    const gallery = $("#gallery");
     // only do once, if this was done, exit 
     if (gallery.children().length > 1) return;
+    
+    const imagesCount = 6;
+    const imagePath = "src/gallery/sample-image-__.jpg";
 
     for (let index = 1; index <= imagesCount; index++) {
         const src = imagePath.replace('__', index.toString());
@@ -27,3 +20,7 @@ function showGallery() {
     }
     new SimpleLightbox('.gallery a', { overlayOpacity: 0.9, fadeSpeed: 0, animationSpeed: 100, widthRatio: 1, heightRatio: 1 });
 }
+
+showGallery();
+
+$("body").on("click", "#logo, .nav-link", navLinkToggle);
