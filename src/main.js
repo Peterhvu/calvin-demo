@@ -21,4 +21,4 @@ function showGallery() {
 
 showGallery();
 
-$("body").on("click", "#logo, .nav-link", navLinkToggle);
+$("body").on("click", ".nav-link", navLinkToggle);
