@@ -6,8 +6,6 @@ function navLinkToggle(e) {
 
 function showGallery() {
     const gallery = $("#gallery");
-    // only do once, if this was done, exit 
-    if (gallery.children().length > 1) return;
     
     const imagesCount = 6;
     const imagePath = "src/gallery/sample-image-__.jpg";
